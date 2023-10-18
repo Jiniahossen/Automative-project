@@ -16,50 +16,57 @@ import Updateproduct from './Pages/Updateproduct';
 import Mycart from './Pages/Mycart';
 import Product from './Pages/Product';
 import Details from './Pages/Details';
+import Errorpage from './Pages/Errorpage';
+import Authprovider from './Provider/Authprovider';
+import { Toaster } from 'react-hot-toast';
 
 const router = createBrowserRouter([
   {
     path: "/",
-    element:<Mainlayout></Mainlayout>,
-    children:[{
-      path:'/',
-      element:<Home></Home>
+    element: <Mainlayout></Mainlayout>,
+    errorElement: <Errorpage></Errorpage>,
+    children: [{
+      path: '/',
+      element: <Home></Home>
     },
     {
-      path:'/login',
-      element:<Login></Login>
+      path: '/login',
+      element: <Login></Login>
     },
     {
-      path:'/register',
-      element:<Register></Register>
+      path: '/register',
+      element: <Register></Register>
     },
     {
-      path:'/addproduct',
-      element:<Addproduct></Addproduct>
+      path: '/addproducts',
+      element: <Addproduct></Addproduct>
     },
     {
-      path:'/updateproduct',
-      element:<Updateproduct></Updateproduct>
+      path: '/updateproducts',
+      element: <Updateproduct></Updateproduct>
     },
     {
-      path:'/mycart',
-      element:<Mycart></Mycart>
+      path: '/mycart',
+      element: <Mycart></Mycart>
     },
     {
-      path:'/product',
-      element:<Product></Product>
+      path: '/product',
+      element: <Product></Product>
 
     },
     {
-      path:'/details',
-      element:<Details></Details>
+      path: '/details',
+      element: <Details></Details>
     }
-  ]
+    ]
   },
 ]);
+<div><Toaster/></div>
 
 ReactDOM.createRoot(document.getElementById('root')).render(
   <React.StrictMode>
-    <RouterProvider router={router}></RouterProvider>
+    <Authprovider>
+      <RouterProvider router={router}></RouterProvider>
+    </Authprovider>
   </React.StrictMode>,
 )
