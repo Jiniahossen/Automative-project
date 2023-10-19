@@ -69,7 +69,7 @@ const Updateproduct = () => {
 
                     </div>
                     <div className=" pt-6 text-center">
-                        <button className="w-full  bg-pink-600 text-white py-2 rounded-md">ADD</button>
+                        <button className="w-full  bg-pink-600 text-white py-2 rounded-md">Update</button>
                     </div>
 
                 </form>

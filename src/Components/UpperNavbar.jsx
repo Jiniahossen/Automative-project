@@ -5,7 +5,7 @@ const UpperNavbar = () => {
         <div>
             <div className="bg-[#db2877]">
 
-                <div className=" max-w-7xl mx-auto text-white font-serif font-medium flex justify-between p-4">
+                <div className=" max-w-7xl mx-auto text-white font-serif font-medium flex justify-between md:p-4 tetx-base md:text-lg">
                     <div>
 
                         <h1> 8 800 234 56 78
