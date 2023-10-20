@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/Authprovider";
 import toast from "react-hot-toast";
 import UpperNavbar from "./UpperNavbar";
+import '../index.css'
 
 
 const Navbar = () => {
@@ -43,8 +44,8 @@ const Navbar = () => {
                         </div>
                         <a className=" normal-case text-xl font-serif font-semibold text-[#b50b82]">MARUTI.SUZUKI</a>
                     </div>
-                    <div className="navbar-center  lg:flex">
-                        <ul className="menu menu-horizontal px-1 gap-6 font-serif">
+                    <div className="navbar-center  lg:flex" id="large-device-menu">
+                        <ul className="menu menu-horizontal px-1 gap-6 font-serif text-lg">
                             {
                                 navLinks
                             }
