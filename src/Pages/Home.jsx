@@ -1,4 +1,3 @@
-
 import { useLoaderData } from "react-router-dom";
 import Aboutus from "../Components/Aboutus";
 import CardItems from "../Components/CardItems";

@@ -19,6 +19,7 @@ import Details from './Pages/Details';
 import Errorpage from './Pages/Errorpage';
 import Authprovider from './Provider/Authprovider';
 import { Toaster } from 'react-hot-toast';
+import PrivateRoute from './Provider/PrivateRoute';
 
 const router = createBrowserRouter([
   {
@@ -40,24 +41,28 @@ const router = createBrowserRouter([
     },
     {
       path: '/addproducts',
-      element: <Addproduct></Addproduct>
+      element: <PrivateRoute><Addproduct></Addproduct></PrivateRoute>
     },
     {
-      path: '/updateproducts',
-      element: <Updateproduct></Updateproduct>
+      path: '/updateproducts/:id',
+      element: <PrivateRoute><Updateproduct></Updateproduct></PrivateRoute>,
+      loader:({params})=>fetch(`http://localhost:5000/products/${params._id}`)
     },
     {
       path: '/mycart',
-      element: <Mycart></Mycart>
+      element: <PrivateRoute><Mycart></Mycart></PrivateRoute>
+     
     },
     {
-      path: '/product',
-      element: <Product></Product>
+      path: '/products/:brandname',
+      element: <Product></Product>,
+      loader:()=>fetch('http://localhost:5000/products')
 
     },
     {
-      path: '/details',
-      element: <Details></Details>
+      path: '/details/:id',
+      element: <PrivateRoute><Details></Details></PrivateRoute>,
+      loader:()=>fetch('http://localhost:5000/products')
     }
     ]
   },

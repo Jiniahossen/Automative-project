@@ -2,6 +2,7 @@ import { useContext } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/Authprovider";
+import Swal from "sweetalert2";
 
 const LoginForm = () => {
     const {logIn}=useContext(AuthContext);
@@ -26,12 +27,25 @@ const LoginForm = () => {
         logIn(email,password)
         .then(result=>{
             console.log(result.user)
-            toast.success('Logged in succesfully')
+            Swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: 'Login successfully',
+                showConfirmButton: false,
+                timer: 1500
+              })
             navigate('/')
         })
         .catch(error=>{
             console.log(error)
-            toast.error('Your email or password is evalid !')
+            Swal.fire({
+                position: 'top-center',
+                icon: 'warning',
+                title: 'Invalid Password or Email! ',
+                showConfirmButton: false,
+                timer: 1500
+              })
+           
 
         })
 

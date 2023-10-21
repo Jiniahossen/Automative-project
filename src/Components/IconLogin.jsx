@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../Provider/Authprovider";
 import { useNavigate } from "react-router-dom";
 import toast from 'react-hot-toast';
+import Swal from "sweetalert2";
 
 
 const IconLogin = () => {
@@ -15,7 +16,13 @@ const IconLogin = () => {
         media()
         .then(res=>{
             console.log(res.user);
-            toast.success('Logged in succesfully');
+            Swal.fire({
+                position: 'top-center',
+                icon: 'success',
+                title: 'Login successfully',
+                showConfirmButton: false,
+                timer: 1500
+              })
             navigate('/')
         })
         .catch(err=>{

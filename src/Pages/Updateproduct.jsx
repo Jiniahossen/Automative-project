@@ -1,10 +1,49 @@
+import { useLoaderData } from "react-router-dom";
 
 
 const Updateproduct = () => {
 
-    const handleUpdateProduct=()=>{
-        
+    const product=useLoaderData();
+    console.log(product)
+    const { name, brandname, _id, type, description, img, price, rating } = product || {};
+    
+
+
+
+    const handleUpdateProduct = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const name = form.name.value;
+        const brandname = form.brandname.value;
+        const type = form.type.value;
+        const description = form.description.value;
+        const img = form.img.value;
+        const price = form.price.value;
+        const rating = form.rating.value;
+
+        const addedData = {
+            name, brandname, type, description, img, price, rating
+        }
+
+        console.log(addedData);
+
+        fetch(`http://localhost:5000/products/${_id}`,{
+            method:"POST",
+            headers:{
+                "Content-Type":"application/json"
+            },
+            body:JSON.stringify(addedData)
+        })
+        .then((res)=>res.json())
+        .then((data)=>{
+            if(data.acknowledged){
+                alert('data added ')
+            }
+            console.log(data)
+        })
+
     }
+
     return (
         <div>
             <div className=" max-w-6xl mx-auto  mt-28">
@@ -20,13 +59,13 @@ const Updateproduct = () => {
                             <label className="label">
                                 <span className=" font-serif ">Name</span>
                             </label>
-                            <input type="text" placeholder="Model name" name="name" className="input border border-black input-sm lg:w-96 md:w-72 w-full" />
+                            <input type="text" defaultValue={name} placeholder="Model name" name="name" className="input border border-black input-sm lg:w-96 md:w-72 w-full" />
                         </div>
                         <div>
                             <label className="label">
                                 <span className=" font-serif">Brand Name</span>
                             </label>
-                            <input type="text" placeholder="Brand name" name="brandname" className="input border border-black input-sm  lg:w-96 md:w-72 w-full" />
+                            <input type="text" defaultValue={brandname} placeholder="Brand name" name="brandname" className="input border border-black input-sm  lg:w-96 md:w-72 w-full" />
                         </div>
                     </div>
                     <div className=" md:flex lg:gap-20 md:gap-4 w-full mb-4">
@@ -34,13 +73,13 @@ const Updateproduct = () => {
                             <label className="label">
                                 <span className=" font-serif ">Type</span>
                             </label>
-                            <input type="text" placeholder="type" name="type" className="input border border-black input-sm lg:w-96 md:w-72 w-full" />
+                            <input type="text" defaultValue={type} placeholder="type" name="type" className="input border border-black input-sm lg:w-96 md:w-72 w-full" />
                         </div>
                         <div>
                             <label className="label">
                                 <span className=" font-serif">Short Description</span>
                             </label>
-                            <input type="text" placeholder="Description" name="description" className="input border border-black input-sm  lg:w-96 md:w-72 w-full" />
+                            <input type="text" defaultValue={description} placeholder="Description" name="description" className="input border border-black input-sm  lg:w-96 md:w-72 w-full" />
                         </div>
                     </div>
                     <div className=" md:flex lg:gap-20 md:gap-4 w-full mb-4">
@@ -48,13 +87,13 @@ const Updateproduct = () => {
                             <label className="label">
                                 <span className=" font-serif ">Image</span>
                             </label>
-                            <input type="text" placeholder="URL" name="img" className="input border border-black input-sm lg:w-96 md:w-72 w-full" />
+                            <input type="text" defaultValue={img} placeholder="URL" name="img" className="input border border-black input-sm lg:w-96 md:w-72 w-full" />
                         </div>
                         <div>
                             <label className="label">
                                 <span className=" font-serif">Price</span>
                             </label>
-                            <input type="text" placeholder="Price" name="price" className="input border border-black input-sm  lg:w-96 md:w-72 w-full" />
+                            <input type="text" defaultValue={price} placeholder="Price" name="price" className="input border border-black input-sm  lg:w-96 md:w-72 w-full" />
                         </div>
                     </div>
                     <div>
@@ -62,7 +101,7 @@ const Updateproduct = () => {
                             <label className="label">
                                 <span className=" font-serif">Ratings</span>
                             </label>
-                            <input type="text" placeholder="Rating" name="rating" className="input border border-black input-sm lg:w-96 md:w-72 w-full" />
+                            <input type="text" defaultValue={rating} placeholder="Rating" name="rating" className="input border border-black input-sm lg:w-96 md:w-72 w-full" />
                         </div>
                     </div>
                     <div>

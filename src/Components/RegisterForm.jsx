@@ -2,6 +2,7 @@ import { useContext } from "react";
 import toast from "react-hot-toast";
 import { Link, useNavigate } from "react-router-dom";
 import { AuthContext } from "../Provider/Authprovider";
+import Swal from "sweetalert2";
 
 const RegisterForm = () => {
     const { createUser, handleProfileUpdate } = useContext(AuthContext);
@@ -26,7 +27,13 @@ const RegisterForm = () => {
                 return handleProfileUpdate(name, img);
             })
             .then(() => {
-                toast.success('User created successfully');
+                Swal.fire({
+                    position: 'top-center',
+                    icon: 'success',
+                    title: 'Register successfully',
+                    showConfirmButton: false,
+                    timer: 1500
+                  })
                 navigate('/');
             })
             .catch((error) => {
