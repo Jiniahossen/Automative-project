@@ -46,7 +46,7 @@ const router = createBrowserRouter([
     {
       path: '/updateproducts/:id',
       element: <PrivateRoute><Updateproduct></Updateproduct></PrivateRoute>,
-      loader:({params})=>fetch(`http://localhost:5000/products/${params._id}`)
+      loader:({params})=>fetch(`https://automotive-server-8p9e7xelh-jinia-akters-projects.vercel.app/products/${params._id}`)
     },
     {
       path: '/mycart',
@@ -56,13 +56,13 @@ const router = createBrowserRouter([
     {
       path: '/products/:brandname',
       element: <Product></Product>,
-      loader:()=>fetch('http://localhost:5000/products')
+      loader:()=>fetch('https://automotive-server-8p9e7xelh-jinia-akters-projects.vercel.app/products')
 
     },
     {
       path: '/details/:id',
       element: <PrivateRoute><Details></Details></PrivateRoute>,
-      loader:()=>fetch('http://localhost:5000/products')
+      loader:()=>fetch('https://automotive-server-8p9e7xelh-jinia-akters-projects.vercel.app/products')
     }
     ]
   },

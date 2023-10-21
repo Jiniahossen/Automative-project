@@ -14,7 +14,7 @@ const Card = ({card}) => {
     }
 
     const handlecard=()=>{
-        fetch('http://localhost:5000/mycart',{
+        fetch('https://automotive-server-8p9e7xelh-jinia-akters-projects.vercel.app/mycart',{
             method:"POST",
             headers:{
                 "Content-Type":"application/json"

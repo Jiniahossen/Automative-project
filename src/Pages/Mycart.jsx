@@ -12,7 +12,7 @@ const Mycart = () => {
     
 
     useEffect(() => {
-        fetch(`http://localhost:5000/mycart/${email}`)
+        fetch(`https://automotive-server-8p9e7xelh-jinia-akters-projects.vercel.app/mycart/${email}`)
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
