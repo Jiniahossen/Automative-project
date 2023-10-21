@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { Link } from "react-router-dom";
 import { AuthContext } from "../Provider/Authprovider";
 import Swal from "sweetalert2";
 
@@ -8,7 +7,7 @@ const Card = ({card}) => {
     const {user}=useContext(AuthContext);
     const email=user.email;
     console.log(email)
-    const { name, brandname, _id, type, description, img, price, rating } = card || {};
+    const { name, brandname, type, description, img, price, rating } = card || {};
 
     const cartProduct={
         name, brandname, type, description, img, price, rating,email
