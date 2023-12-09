@@ -7,6 +7,8 @@ const Product = () => {
     const [product, setProduct] = useState(null);
     const { brandname } = useParams();
     const products = useLoaderData();
+    console.log(brandname)
+    console.log(products)
 
     useEffect(() => {
         const brandProducts = products.filter((brandproduct) => brandproduct.brandname === brandname);

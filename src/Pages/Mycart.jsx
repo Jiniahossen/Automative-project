@@ -8,11 +8,11 @@ const Mycart = () => {
     const email = user.email;
     const [cartedItem, setCartedItem] = useState(null);
 
-    // Use the toaster hook to show a toast message
+
     
 
     useEffect(() => {
-        fetch(`https://automotive-server-8p9e7xelh-jinia-akters-projects.vercel.app/mycart/${email}`)
+        fetch(`https://automotive-server-ten.vercel.app/mycart/${email}`)
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);

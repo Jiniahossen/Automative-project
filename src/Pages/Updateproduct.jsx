@@ -27,7 +27,7 @@ const Updateproduct = () => {
 
         console.log(addedData);
 
-        fetch(`https://automotive-server-8p9e7xelh-jinia-akters-projects.vercel.app/products/${_id}`,{
+        fetch(`https://automotive-server-ten.vercel.app/products/${_id}`,{
             method:"POST",
             headers:{
                 "Content-Type":"application/json"

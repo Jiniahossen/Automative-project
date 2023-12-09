@@ -1,6 +1,5 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
 
+import { initializeApp } from "firebase/app";
 const firebaseConfig = {
   apiKey: "AIzaSyDaNUHJtk3zYldV9qk32E7hgX0_xnNsyv0",
   authDomain: "automotive-brand-585bc.firebaseapp.com",
